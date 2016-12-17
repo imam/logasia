@@ -79,57 +79,6 @@ class VehiclesController extends Controller
 
     public function bulkUpdate(Request $request)
     {
-        $messages = [
-            'vehicles_availability.dontExceedSwapBodyTruck'=> 'kepo'
-        ];
-        $rules = [
-            'select_vehicle' => 'required|array',
-            'start_date' =>'required',
-            'end_date' =>'required',
-            'refine_days' =>'required',
-            'custom_refine_days' => 'required_if:refine_days,custom',
-            'price' =>'required_without:vehicles_availability|integer',
-            'vehicles_availability' => 'required_without:price|integer'
-        ];
-        $validator = \Validator::make($request->all(),[
-            'select_vehicle' => 'required|array',
-            'start_date' =>'required',
-            'end_date' =>'required',
-            'refine_days' =>'required',
-            'custom_refine_days' => 'required_if:refine_days,custom',
-            'price' =>'required_without:vehicles_availability|integer',
-            'vehicles_availability' => 'required_without:price|integer'
-        ]);
-        $totalInventory = [];
-        foreach($request->select_vehicle as $vehicle) {
-            if ($request->select_vehicle == 'semi_trailer_truck') {
-                $model = new SemiTrailerTruck();
-                $totalInventory[] = $model->totalInventory;
-            }
-            if ($vehicle == 'swap_body_truck') {
-                $model = new SwapBodyTruck();
-                $totalInventory[] = $model->totalInventory;
-
-            }
-            if ($vehicle == 'pup_trailer') {
-                $model = new PupTrailer();
-                $totalInventory[] = $model->totalInventory;
-            }
-        }
-        if($totalInventory != []) {
-            $setMaximumValueForVehiclesAvailaility = max($totalInventory);
-            $newAttributeForVehiclesAvailability = [
-                "max:{$setMaximumValueForVehiclesAvailaility}"
-            ];
-            $validator->mergeRules('vehicles_availability', $newAttributeForVehiclesAvailability);
-        }
-        if($validator->fails()){
-            $errors = [];
-            foreach($validator->errors()->all() as $error){
-                $errors[] = $error;
-            }
-            return response($errors,422);
-        }
         $filterWeekDay = $this->bulkUpdateGetWeekDays($request->refine_days,$request->custom_refine_days);
         $dates = Date::with($request->select_vehicle)
             ->where('date','>=',$this->setTimeToMidnight($request->start_date))
