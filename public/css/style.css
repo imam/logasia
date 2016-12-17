@@ -1,0 +1,139 @@
+label {
+  font-weight: normal;
+}
+.default-box {
+  margin: 50px 0;
+  background-color: #f4f5f0;
+  border-radius: 5px;
+  border: 2px solid #e8e8e7;
+}
+.bo-container__title-box__title {
+  margin: 0;
+}
+.bo-container__title-box__title span {
+  border-bottom: 2px dotted #afc0cd;
+}
+.bo-container__item-box {
+  border-bottom: 2px solid #e8e8e7;
+  padding: 15px 10px 15px;
+}
+.bo-container__item-box--light {
+  background-color: #f9f9f9;
+}
+.bo-container__item-box p {
+  margin: 0;
+}
+.bo-container__update-notification {
+  padding: 10px;
+}
+.bo-container__update-notification--success {
+  color: #3a4;
+}
+.bo-container__validation-error {
+  margin: 10px 0;
+  background-color: #e55;
+  padding: 20px;
+  color: #fff;
+}
+.bo-container__validation-error a {
+  padding-top: 4px;
+  display: block;
+  color: #ccc;
+}
+.cal-container__form-field {
+  padding-bottom: 10px;
+}
+.cal-container__item-box {
+  margin: 0;
+}
+.cal-container__item-box--light {
+  background-color: #f9f9f9;
+}
+.cal-container__item-box p {
+  margin: 0;
+}
+.cal-container__left-arrow {
+  position: absolute;
+  left: 370px;
+  color: #000;
+}
+.cal-container__right-arrow {
+  position: absolute;
+  right: 370px;
+  color: #000;
+}
+.cal-container__previous-month {
+  position: absolute;
+  left: 10px;
+}
+.cal-container__next-month {
+  position: absolute;
+  right: 10px;
+}
+.cal-container__cal-data {
+  text-align: center;
+}
+.cal-container__cal-data-title {
+  padding-top: 5px;
+}
+.cal-container__cal-header {
+  background-color: #ddd;
+  font-weight: bold;
+  border: 1px solid #e5e5e5;
+  height: 30px;
+  padding-top: 3px;
+}
+.cal-container__cal-header--holiday {
+  background-color: #800;
+  color: #fff;
+}
+.cal-container__cal-editable {
+  color: #000;
+  cursor: pointer;
+}
+.cal-container__cal-body {
+  background-color: #eee;
+  border: 1px solid #e5e5e5;
+  padding: 10px 0;
+}
+.cal-container__section-divider {
+  padding: 11px 0;
+}
+.cal-container__section-divider--chocolate {
+  background-color: #c6c68d;
+}
+.cal-container__section-divider--light-blue {
+  background-color: #cae7ef;
+}
+.cal-container__section-divider--light-green {
+  background-color: #8e7;
+}
+.hidden-default {
+  display: none;
+}
+.visible {
+  display: inherit;
+}
+.top-padding {
+  padding-top: 15px;
+}
+.top-padding-10 {
+  padding-top: 10px;
+}
+.bottom-padding {
+  padding-bottom: 15px;
+}
+.top-margin {
+  margin-top: 15px;
+}
+.top-margin-50 {
+  margin-top: 50px;
+}
+.left-margin {
+  margin-left: 15px;
+}
+.relative {
+  position: relative;
+}
+
+/*# sourceMappingURL=style.css.map */
