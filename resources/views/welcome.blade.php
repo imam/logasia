@@ -28,6 +28,10 @@
         <div class="default-box hidden-default" :class="{'visible':bulkVisible}">
             <div class="bo-container__title-box bo-container__item-box">
                 <p class="bo-container__title-box__title"> <span>Bulk Operations</span></p>
+                <div class="bo-container__validation-error" v-if="error_list">
+                    <li v-for="error in error_list">@{{error}}</li>
+                    <a href="#" v-on:click="close_validation_error_box">Close</a>
+                </div>
             </div>
             <div class="bo-container__item-box bo-container__item-box--light">
                 <div class="row bo-container__form-field">
