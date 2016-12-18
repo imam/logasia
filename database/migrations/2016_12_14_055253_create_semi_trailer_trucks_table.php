@@ -17,7 +17,7 @@ class CreateSemiTrailerTrucksTable extends Migration
             $table->increments('id');
             $table->integer('vehicles_available');
             $table->integer('price');
-            $table->integer('date_id')->unique();
+            $table->integer('date_id')->unique()->unsigned()->nullable();
             $table->timestamps();
         });
     }

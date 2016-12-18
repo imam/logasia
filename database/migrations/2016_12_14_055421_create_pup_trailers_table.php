@@ -17,7 +17,7 @@ class CreatePupTrailersTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('price');
-            $table->integer('date_id')->unique();
+            $table->integer('date_id')->unique()->unsigned()->nullable();
             $table->integer('vehicles_available');
         });
     }

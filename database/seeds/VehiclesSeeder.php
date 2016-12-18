@@ -12,22 +12,13 @@ class VehiclesSeeder extends Seeder
      */
     public function run()
     {
-
-        factory(App\SemiTrailerTruck::class, 500)->make()->each(function($item, $key){
-            $item->date_id = $key + 1;
-            $item->save();
-        });
-        factory(App\SwapBodyTruck::class, 500)->make()->each(function($item, $key){
-            $item->date_id = $key + 1;
-            $item->save();
-        });
-        factory(App\PupTrailer::class, 500)->make()->each(function($item, $key){
-            $item->date_id = $key+1;
-            $item->save();
-        });
-        factory(App\Date::class, 500)->make()->each(function($item,$key){
+        factory(App\Date::class, 500)->make()->each(function($item, $key){
             $item->date= \App\Carbon::now()->setTime(0,0,0)->addDay($key);
+            $item->semi_trailer_truck()->save(factory(App\SemiTrailerTruck::class)->make());
+            $item->swap_body_truck()->save(factory(App\SwapBodyTruck::class)->make());
+            $item->pup_trailer()->save(factory(App\PupTrailer::class)->make());
             $item->save();
         });
+
     }
 }
